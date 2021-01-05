@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="owfont-regular.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <title>momentum</title>
+</head>
+
+<body>
+    <header class="header">
+        <button id='change'>change image</button>
+        <div class="weather">
+            <div class="city" contenteditable="true"></div>
+            <div class="temp__wrapper">
+                <div class="temp"></div>
+                <i class="weather-icon owf"></i>
+            </div>
+            <div class="weather-description"></div>
+            <div class="wind__humidity">
+            </div>
+
+        </div>
+    </header>
+    <div class="main__wrapper">
+        <main class="main">
+            <time id="time">
+            </time>
+            <div class="date"></div>
+            <h1 id="greeting"></h1>
+            <div id="name" contenteditable="true"></div>
+
+            <h2>What Is Your Focus For Today?</h2>
+            <h2 id="focus" contenteditable="true"></h2>
+            <div class="quote">
+                <i class="fas fa-sync-alt quote-img"></i>
+                <blockquote class="quote__text">
+                </blockquote>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="footer__content">
+            <span class="footer__text">developed by Aleksandr Kobelev</span>
+            <a href="https://vk.com/sasha_kob" target="_blank">
+                <img class="footer__img" src="/assets/images/icon_vk.png" alt="icon">
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
