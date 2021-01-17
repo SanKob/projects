@@ -20,8 +20,8 @@ body {
     display: grid;
     align-content: center;
     justify-content: center;
-    grid-template-columns: repeat(4, 70px);
-    grid-template-rows: minmax(150px, auto) repeat(6, 70px);
+    grid-template-columns: repeat(4, 9vh);
+    grid-template-rows: minmax(19vh, auto) repeat(6, 9vh);
     border-radius: 5px;
 }
 
@@ -39,18 +39,18 @@ body {
 
 .previous-operand {
     color: #beb8b8;
-    font-size: 1.8rem;
+    font-size: 3vh;
 }
 
 .current-operand {
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 5vh;
 }
 
 button {
     outline: none;
     cursor: pointer;
-    font-size: 1.8rem;
+    font-size: 3vh;
     border: 1px solid #000;
     background-color: #686767;
     color: #fff;
