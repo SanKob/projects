@@ -1,0 +1,123 @@
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.textarea {
+    display: block;
+    width: 90%;
+    margin: 30px auto;
+    padding: 10px;
+    font-size: 20px;
+    height: calc(100vh - 325px);
+    resize: none;
+}
+
+.keyboard {
+    background-color: rgb(49, 160, 154);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    padding: 10px 0;
+    -webkit-transition: bottom .4s;
+    -o-transition: bottom .4s;
+    transition: bottom .4s;
+}
+
+.keyboard-hidden {
+    bottom: -100%;
+}
+
+.keyboard__keys {
+    text-align: center;
+}
+
+.keyboard__key {
+    height: 40px;
+    width: 5%;
+    max-width: 80px;
+    background-color: #353535;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 3px;
+    font-size: 1.05rem;
+    -webkit-transition: .2s easy;
+    -o-transition: .2s easy;
+    transition: .2s easy;
+}
+
+.keyboard__keys--pressed {
+    background-color: rgb(27, 230, 203);
+}
+
+.keyboard__key--wide {
+    width: 7%;
+    max-width: 133px;
+}
+
+.keyboard__key--extra-wide {
+    width: 35%;
+    max-width: 455px;
+}
+
+.keyboard__key--change-lang {
+    min-width: 60px;
+}
+
+.keyboard__key-activatable::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: rgb(90, 158, 155);
+}
+
+.keyboard__key-active::before {
+    background-color: rgb(28, 243, 168);
+}
+
+.keyboard__key-dark {
+    background-color: rgb(12, 39, 30);
+}
+
+@media (max-width: 750px) {
+    .keyboard__key-activatable::before {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .material-icons {
+        font-size: 20px;
+    }
+    .keyboard__key-activatable::before {
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+        top: 2px;
+    }
+}
