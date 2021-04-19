@@ -33,10 +33,10 @@ header {
 .textarea {
     display: block;
     width: 90%;
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 10px;
     font-size: 20px;
-    height: calc(100vh - 325px);
+    height: calc(100vh - 335px);
     resize: none;
 }
 
