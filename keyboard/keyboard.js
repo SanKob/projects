@@ -40,6 +40,10 @@ let keyboard = {
         document.body.appendChild(this.elements.main);
 
         this.textarea.addEventListener('focus', (ev) => {
+            this.textarea.setAttribute('readonly', 'readonly')
+            setTimeout(() => {
+                this.textarea.removeAttribute('readonly', 'readonly');
+            }, 50)
             keyboard.open();
 
         });
@@ -62,6 +66,13 @@ let keyboard = {
     },
     displayCursor() {
         this.textarea.focus();
+    },
+    keepFocusOnTextarea(el) {
+
+        el.onmousedown = () => {
+            if (!el.innerHTML.includes('check_circle'))
+                return false;
+        }
     },
     illuminateKey(key) {
         key.classList.add('keyboard__keys--pressed');
@@ -215,6 +226,9 @@ let keyboard = {
                 key.textContent = el[0];
             } else key.textContent = el;
 
+            this.keepFocusOnTextarea(key); // add this function to keep focus
+            //on textarea when clicking on buttons
+
             switch (el) {
                 case 'backspace':
                     key.classList.add('keyboard__key--wide');
@@ -222,7 +236,7 @@ let keyboard = {
                     key.onclick = () => {
                         if (this.textarea.selectionStart === 0) return;
                         this.handleInput();
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds('backspace');
                     }
@@ -234,7 +248,7 @@ let keyboard = {
                         this.properties.capslock = !this.properties.capslock;
                         key.classList.toggle('keyboard__key-active');
                         this.handleCapslock();
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds('capslock');
 
@@ -245,7 +259,7 @@ let keyboard = {
                     key.innerHTML = this.createButtonIcon('keyboard_return');
                     key.onclick = () => {
                         this.handleInput('\n');
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds('enter');
 
@@ -277,7 +291,7 @@ let keyboard = {
                             this.properties.language = 'ru';
                         key.innerHTML = this.createButtonIcon('language') + this.properties.language.toUpperCase();
                         this.handleShift(keyLayout);
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds('lang');
 
@@ -293,7 +307,7 @@ let keyboard = {
                     key.innerHTML = this.createButtonIcon('space_bar');
                     key.onclick = () => {
                         this.handleInput(' ');
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
                     }
@@ -304,7 +318,7 @@ let keyboard = {
                         if (this.textarea.selectionEnd !== 0) {
                             this.textarea.selectionEnd--;
                         };
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
                     }
@@ -313,7 +327,7 @@ let keyboard = {
                     key.innerHTML = this.createButtonIcon('keyboard_arrow_right');
                     key.onclick = () => {
                         this.textarea.selectionStart++;
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
                     }
@@ -325,7 +339,7 @@ let keyboard = {
                         if (this.properties.volum) {
                             key.innerHTML = this.createButtonIcon('volume_up');
                         } else key.innerHTML = this.createButtonIcon('volume_off');
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
                     }
@@ -348,7 +362,7 @@ let keyboard = {
                             key.innerHTML = this.createButtonIcon('mic_off');
                         }
 
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
 
@@ -358,7 +372,7 @@ let keyboard = {
                 default:
                     key.onclick = (event) => {
                         this.handleInput(event.target.innerText);
-                        this.displayCursor();
+                        //this.displayCursor();
                         this.illuminateKey(key);
                         this.playSounds(this.properties.language);
 
