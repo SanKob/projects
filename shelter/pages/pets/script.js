@@ -54,7 +54,7 @@ burger.onclick = function() {
 let pets = [];
 let listPets = [];
 let containerCards = document.querySelector('.pets__cards');
-console.log('hi')
+
 let request = new XMLHttpRequest();
 request.open('GET', '../../pets.json');
 request.onload = () => {
@@ -75,17 +75,6 @@ request.onload = () => {
     listPets = sort6(listPets);
     checkLimitElements();
     createElements(limitElements, position);
-    
-    let imgArr = [];
-    let preloaderImgs = () => {
-        pets.forEach((obj) => {
-            imgObj = new Image();
-            imgObj.src = obj.img;
-            imgArr.push(imgObj);
-    });
-};
-preloaderImgs();
-console.log(pets);
 };
 
 request.send();
