@@ -54,7 +54,7 @@ burger.onclick = function() {
 let pets = [];
 let listPets = [];
 let containerCards = document.querySelector('.pets__cards');
-
+console.log('hi')
 let request = new XMLHttpRequest();
 request.open('GET', '../../pets.json');
 request.onload = () => {
@@ -85,7 +85,7 @@ request.onload = () => {
     });
 };
 preloaderImgs();
-console.log(pets)
+console.log(pets);
 };
 
 request.send();
