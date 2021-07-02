@@ -136,7 +136,7 @@ let displayElements = (elements) => {
 let limitElements = 8;
 
 let checkLimitElements = () => {
-
+    let currElementsOnPage = limitElements;
     if (window.innerWidth >= 1280) {
         limitElements = 8;
     } else if (window.innerWidth < 1280) {
@@ -144,7 +144,11 @@ let checkLimitElements = () => {
             limitElements = 3;
         } else limitElements = 6;
     }
-    return limitElements;
+   if (currElementsOnPage !== limitElements) {
+       setInitialPage();
+       digitalBtn.innerHTML = countPages;
+       createElements(limitElements, position);
+   };
 };
 
 let digitalBtn = document.querySelector('.navigation__btn-active');
@@ -225,13 +229,7 @@ firstPageBtn.addEventListener('click', function() {
 });
 
 window.addEventListener('resize', () => {
-    windowWidth = window.innerWidth;
     checkLimitElements();
-    setInitialPage();
-    digitalBtn.innerHTML = countPages;
-    createElements(limitElements, position);
-    // createElements(listPets, limitElements);
-
 });
 
 function switchPage(elementsOfPage, startPositionOfElements) {
