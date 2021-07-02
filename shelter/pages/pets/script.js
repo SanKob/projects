@@ -55,11 +55,20 @@ let pets = [];
 let listPets = [];
 let containerCards = document.querySelector('.pets__cards');
 
+let imgArr = [];
+let preloaderImgs = () => {
+    pets.forEach((obj) => {
+        imgObj = new Image();
+        imgObj.src = obj.img;
+        imgArr.push(imgObj);
+    });
+};
+
 let request = new XMLHttpRequest();
 request.open('GET', '../../pets.json');
 request.onload = () => {
     pets = JSON.parse(request.response);
-
+    preloaderImgs();
     for (let i = 0; i < 6; i++) {
         let randomPetsList = [];
         let newPets = [...pets];
