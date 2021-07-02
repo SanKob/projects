@@ -75,20 +75,20 @@ request.onload = () => {
     listPets = sort6(listPets);
     checkLimitElements();
     createElements(limitElements, position);
+    
+    let imgArr = [];
+    let preloaderImgs = () => {
+        pets.forEach((obj) => {
+            imgObj = new Image();
+            imgObj.src = obj.img;
+            imgArr.push(imgObj);
+    });
+};
+preloaderImgs();
 
 };
 
 request.send();
-
-let imgArr = [];
-let preloaderImgs = () => {
-    pets.forEach((obj) => {
-        imgObj = new Image();
-        imgObj.src = obj.img;
-        imgArr.push(imgObj);
-    });
-};
-preloaderImgs();
 
 function sort6(arr) {
     let lineOfElements;
