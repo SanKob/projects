@@ -85,7 +85,7 @@ request.onload = () => {
     });
 };
 preloaderImgs();
-
+console.log(pets)
 };
 
 request.send();
